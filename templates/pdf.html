@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="{{url_for('static', filename='/assets/logo.png')}}" width="100" height="100" class="logo"/>
+    <h1>Rapport Médical et Diagnostic</h1>
+    <h2>Détails</h2>
+    <p>Date de l'analyse : {{date}}</p>
+    <p>Numéro d'analyse : {{uuid}}</p>
+    <h2>Données d'entrée</h2>
+    <img src="{{image}}" width="300px" height="300px"/>
+    <h2>Diagnostic</h2>
+    <p>Type : {{result}} avec une confiance de {{confidence}}%</p>
+    <h2>Recommandations</h2>
+    <ol>
+        {% for element in recommendation %}
+            <li>{{element}}<li>
+        {% endfor %}
+    </ol>
+    <h2>Important</h2>
+    <p>Note :
+        Bien que le modèle d'apprentissage automatique fournisse un degré élevé de confiance dans sa détection, toutes les conclusions doivent être confirmées par des procédures cliniques et diagnostiques. Un suivi immédiat avec des professionnels de la santé est crucial.</p>
+    
+    <h3>Rapport Généré Par : </h3>
+    <p>MammoScan AI</p>
+    
+</body>
+</html>

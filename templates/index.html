@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MammoScan AI</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='/index.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+<body>
+    <div class = "home">
+        <div class="navbar">
+            <img src = "{{url_for('static', filename='/assets/logo.png')}}" width ="100" height="100" class = "logo"/>
+            <a href = "#try">
+                Scanner
+            </a>
+            <a href = "#about">
+                À propos
+            </a>
+        </div>
+        <div class = "intro">
+            <p>Révolutionner le diagnostic du cancer avec le Machine Learning..</p>
+    <h1>Classer et détecter le cancer du poumon avec MammoScan AI</h1>
+    <h2>MammoScan AI est une application web qui utilise le Machine Learning pour diagnostiquer 3 types de cancer du poumon adenocarinoma, large cell carcinoma et squamous cell carcinoma  avec une précision de plus de 80%</h2>
+</div>
+        <div class = "about" id = "about">
+            <table>
+                <tr>
+                    <td class="t1">
+                        <p>Détecte le cancer du poumon avec une précision de plus de 80%</p>
+                        <span class="material-symbols-outlined">
+                            settings
+                        </span>
+                    </td>
+                    <td class="t2">
+                        <p>Utilise un CNN construit sur VGG 16</p>
+                        <span class="material-symbols-outlined">
+                            build
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t3">
+                        <p>Entraîné sur un jeu de données de plus de 1000 scanners CT</p>
+                        <span class="material-symbols-outlined">
+                            model_training
+                        </span>
+                    </td>
+                    <td class="t4">
+                        <p>Vous permet de détecter le cancer du poumon et de commencer le traitement en quelques secondes</p>
+                        <span class="material-symbols-outlined">
+                            photo_camera
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class = "try" id = "try">
+            <h1>Scanner</h1>
+            <div class = "upload">
+                <p>Fichiers pris en charge : JPG, JPEG, PNG</p>
+                <form action='/', method="post" enctype="multipart/form-data">
+                    <label class = "uploadbtn">
+                        <input type="file" name="imagefile" style="display:none">
+                        Choisir une image
+                    </label>
+
+
+
+                    <input type="file" id="imageUpload" name="imagefile" accept="image/*">
+                    
+                    <img id="imagePreview" src="#" alt="Aperçu de l'image" style="display: none;">
+
+                    <input type="submit" value="Process" >
+                </form>
+            </div>
+
+ 
+
+
+
+
+        </div>
+
+<!-- Footer -->
+<footer>
+    <p>© 2024 Bahae Eddine. Tous droits réservés. Code with ❤️ <a href="https://github.com/halimbahae" target="_blank">GitHub</a></p>
+</footer>
+<!-- End Footer -->
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var imageUpload = document.getElementById('imageUpload');
+        var imagePreview = document.getElementById('imagePreview');
+    
+        imageUpload.addEventListener('change', function() {
+            var file = this.files[0];
+            var reader = new FileReader();
+    
+            reader.onload = function(e) {
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = 'block';
+            };
+    
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+    </script>
+    
+
+
+
+</body>
+</html>
